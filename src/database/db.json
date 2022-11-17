@@ -1,0 +1,393 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Rafael Rodrigues",
+      "contato": {
+        "celular": "(12) 99792-6349",
+        "residencial": "3682-2354"
+      },
+      "email": "rafaelrodrigues.carvalho@yahoo.com.br",
+      "senha": "000",
+      "acesso": "Total",
+      "endereco": {
+        "cep": "12092700",
+        "logradouro": "Rua Orestes Francisco Vanone",
+        "bairro": "Estoril",
+        "cidade": "Taubaté",
+        "estado": "SP"
+      }
+    },
+    {
+      "nome": "Rogers Anselmo",
+      "contato": {
+        "celular": "(12) 997971-6671",
+        "residencial": "3688-2475"
+      },
+      "email": "rogers.anselmo@gmail.com",
+      "senha": "123",
+      "acesso": "Restrito",
+      "endereco": {
+        "cep": "12092712",
+        "logradouro": "Rua Professora Flávia Baruzzi Frediani",
+        "bairro": "Residencial Estoril",
+        "cidade": "Taubaté",
+        "estado": "SP"
+      },
+      "id": 2
+    },
+    {
+      "nome": "João Pedro Molina",
+      "contato": {
+        "celular": "12 98122-2772",
+        "residencial": "3622-2272"
+      },
+      "email": "joao_pepe@hotmail.com",
+      "senha": "123",
+      "acesso": "Restrito",
+      "endereco": {
+        "cep": "12092400",
+        "logradouro": "Rua Diácono João José Monteiro",
+        "bairro": "Sítio Belo Horizonte",
+        "cidade": "Taubaté",
+        "estado": "SP"
+      },
+      "id": 3
+    },
+    {
+      "nome": "Renner Gouveia",
+      "contato": {
+        "celular": "(12) 99568-6648",
+        "residencial": "3666-2766"
+      },
+      "email": "renner_gouveia@gmail.com",
+      "senha": "123",
+      "acesso": "Restrito",
+      "endereco": {
+        "cep": "12230-001",
+        "logradouro": "Avenida Andrômeda",
+        "bairro": "Jardim Satélite",
+        "cidade": "São José dos Campos",
+        "estado": "SP"
+      },
+      "id": 4
+    },
+    {
+      "nome": "Julia Rodrigues",
+      "contato": {
+        "celular": "(12) 99715-4848",
+        "residencial": "36726692"
+      },
+      "email": "julia_rgds@yahoo.com.br",
+      "senha": "123",
+      "acesso": "Restrito",
+      "endereco": {
+        "cep": "12092700",
+        "logradouro": "Rua Orestes Francisco Vanone",
+        "bairro": "Residencial Estoril",
+        "cidade": "Taubaté",
+        "estado": "SP"
+      },
+      "id": 5
+    },
+    {
+      "nome": "Lucas Rodrigues",
+      "contato": {
+        "celular": "(12) 98166-2428",
+        "residencial": "3662-1514"
+      },
+      "email": "lucas.rdecarvalho@hotmail.com",
+      "senha": "123",
+      "acesso": "Restrito",
+      "endereco": {
+        "cep": "88316360",
+        "logradouro": "Rua Cândido Winter",
+        "bairro": "Itaipava",
+        "cidade": "Itajaí",
+        "estado": "SC"
+      },
+      "id": 6
+    },
+    {
+      "nome": "Maria Auxiliadora",
+      "contato": {
+        "celular": "(12) 99744-1954",
+        "residencial": "36822374"
+      },
+      "email": "dora.mcunha@hotmail.com",
+      "senha": "123",
+      "acesso": "Restrito",
+      "endereco": {
+        "cep": "12092700",
+        "logradouro": "Rua Orestes Francisco Vanone",
+        "bairro": "Residencial Estoril",
+        "cidade": "Taubaté",
+        "estado": "SP"
+      },
+      "id": 7
+    },
+    {
+      "id": 8,
+      "nome": "Aline Maximiano",
+      "email": "nine@hotmail.com",
+      "acesso": "Total",
+      "senha": "123",
+      "contato": {
+        "celular": "(12) 97814-1712",
+        "residencial": "3622-2242"
+      },
+      "endereco": {
+        "logradouro": "Rua General Júlio Salgado",
+        "bairro": "Tabaú",
+        "cidade": "Pindamonhangaba",
+        "estado": "SP",
+        "cep": "12403070"
+      }
+    },
+    {
+      "nome": "Marcelo Galvão",
+      "contato": {
+        "celular": "(12) 99751-4781",
+        "residencial": "3666-1317"
+      },
+      "email": "marcelo_galvao@hotmail.com",
+      "senha": "123",
+      "acesso": "Restrito",
+      "endereco": {
+        "cep": "12010-480",
+        "logradouro": "Rua Imaculada Conceição",
+        "bairro": "Centro",
+        "cidade": "Taubaté",
+        "estado": "SP"
+      },
+      "id": 9
+    },
+    {
+      "id": 10,
+      "nome": "Regiane Galvão",
+      "email": "regiane_galvao@hotmail.com",
+      "acesso": "Restrito",
+      "senha": "123",
+      "contato": {
+        "celular": "(12) 99751-4225",
+        "residencial": "3666-1317"
+      },
+      "endereco": {
+        "logradouro": "Rua Imaculada Conceição",
+        "bairro": "Centro",
+        "cidade": "Taubaté",
+        "estado": "SP",
+        "cep": "12010-480"
+      }
+    }
+  ],
+  "clientes": [
+    {
+      "id": 1,
+      "nome": "Julia Rodrigues de Carvalho",
+      "idade": 21,
+      "email": "juliardgs@icloud.com",
+      "contato": {
+        "celular": "(12) 99771-5368",
+        "residencial": "3654-2784"
+      },
+      "endereco": {
+        "cep": "12092700",
+        "logradouro": "Rua Orestes Francisco Vanone",
+        "bairro": "Estoril",
+        "cidade": "Taubaté",
+        "estado": "SP"
+      },
+      "modalidade": "Ginástica",
+      "plano": {
+        "nome": "Mensal",
+        "valor": "179,99"
+      },
+      "turno": "Noite"
+    },
+    {
+      "nome": "Rafael Rodrigues de Carvalho",
+      "idade": "1997-01-28",
+      "email": "rafaelrodrigues.carvalho@yahoo.com.br",
+      "contato": {
+        "celular": "(12) 99792-6349",
+        "residencial": "3682-2389"
+      },
+      "endereco": {
+        "cep": "12092700",
+        "logradouro": "Rua Orestes Francisco Vanone",
+        "bairro": "Residencial Estoril",
+        "cidade": "Taubaté",
+        "estado": "SP"
+      },
+      "modalidade": "Musculação",
+      "plano": {
+        "nome": "Mensal",
+        "valor": "79,99"
+      },
+      "turno": "Noite",
+      "id": 4
+    },
+    {
+      "nome": "Renner Messias Gouveia ",
+      "idade": "1997-05-05",
+      "email": "renner_gouveia@hotmail.com",
+      "contato": {
+        "celular": "(12) 99866-2476",
+        "residencial": "3633-2477"
+      },
+      "endereco": {
+        "cep": "12227-320",
+        "logradouro": "Rua Aquarius",
+        "bairro": "Jardim da Granja",
+        "cidade": "São José dos Campos",
+        "estado": "SP"
+      },
+      "modalidade": "Musculação",
+      "plano": {
+        "nome": "Anual",
+        "valor": "919,99"
+      },
+      "turno": "Noite",
+      "id": 6
+    },
+    {
+      "nome": "Leticia dos Santos Gouveia",
+      "idade": "1998-04-15",
+      "email": "leh_gouveia@hotmail.com",
+      "contato": {
+        "celular": "(12) 9871-1795",
+        "residencial": "3625-7725"
+      },
+      "endereco": {
+        "cep": "12227-320",
+        "logradouro": "Rua Aquarius",
+        "bairro": "Jardim da Granja",
+        "cidade": "São José dos Campos",
+        "estado": "SP"
+      },
+      "modalidade": "Natação",
+      "plano": {
+        "nome": "Anual",
+        "valor": "919,99"
+      },
+      "turno": "Noite",
+      "id": 7
+    },
+    {
+      "nome": "Lucas Rodrigues de Carvalho",
+      "idade": "1994-12-05",
+      "email": "lucas_petercech@hotmail.com",
+      "contato": {
+        "celular": "(12)99716-1543",
+        "residencial": "3688-1966"
+      },
+      "endereco": {
+        "cep": "93320-034",
+        "logradouro": "Rua Marcílio Dias",
+        "bairro": "Centro",
+        "cidade": "Novo Hamburgo",
+        "estado": "RS"
+      },
+      "modalidade": "Boxe",
+      "plano": {
+        "nome": "Semestral",
+        "valor": "459,99"
+      },
+      "turno": "Noite",
+      "id": 8
+    },
+    {
+      "nome": "Rodrigo Duarte da Silva",
+      "idade": "1990-08-15",
+      "email": "ro.duarte@gmail.com",
+      "contato": {
+        "celular": "(12) 99622-5513",
+        "residencial": "3617-8939"
+      },
+      "endereco": {
+        "cep": "25050-170",
+        "logradouro": "Rua Diamante",
+        "bairro": "Jardim Gramacho",
+        "cidade": "Duque de Caxias",
+        "estado": "RJ"
+      },
+      "modalidade": "Musculação",
+      "plano": {
+        "nome": "Mensal",
+        "valor": "79,99"
+      },
+      "turno": "Noite",
+      "id": 9
+    },
+    {
+      "nome": "João Pedro da Cunha Molina",
+      "idade": "1997-04-03",
+      "email": "joa_pepe@hotmail.com",
+      "contato": {
+        "celular": "(12) 99733-4416",
+        "residencial": "3622-4478"
+      },
+      "endereco": {
+        "cep": "12140-970",
+        "logradouro": "Rua Abrahão Abdalla",
+        "bairro": "Centro",
+        "cidade": "São Luiz do Paraitinga",
+        "estado": "SP"
+      },
+      "modalidade": "Musculação",
+      "plano": {
+        "nome": "Trimestral",
+        "valor": "229,99"
+      },
+      "turno": "Noite",
+      "id": 10
+    }
+  ],
+  "planos": [
+    {
+      "nome": "Mensal",
+      "valor": "79,99"
+    },
+    {
+      "nome": "Trimestral",
+      "valor": "229,99"
+    },
+    {
+      "nome": "Semestral",
+      "valor": "459,99"
+    },
+    {
+      "nome": "Anual",
+      "valor": "919,99"
+    }
+  ],
+  "modalidades": [
+    {
+      "nome": "Musculação"
+    },
+    {
+      "nome": "Natação"
+    },
+    {
+      "nome": "Ginástica"
+    },
+    {
+      "nome": "Boxe"
+    },
+    {
+      "nome": "CrossFit"
+    }
+  ],
+  "turnos": [
+    {
+      "nome": "Manha"
+    },
+    {
+      "nome": "Tarde"
+    },
+    {
+      "nome": "Noite"
+    }
+  ]
+}

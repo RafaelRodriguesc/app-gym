@@ -1,0 +1,213 @@
+<app-header></app-header>
+<div class="content">
+  <div style="padding-top: 15px;">
+    <h1 style="text-align:center;">Clientes</h1>
+  </div>
+  <div style="width: 90%; margin: 50px auto; display:flex; justify-content: flex-end;">
+    <button type="button" class="btn btn-success btn-sm" (click)="addCliente()"><i
+        class="bi bi-person-plus-fill"></i>Add</button>
+  </div>
+
+  <div class="row search-container">
+    <div class="col-md-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+        <input type="text" style="height:40px ;" class="form-control" placeholder="Busque um cliente..."
+          aria-label="Username" aria-describedby="basic-addon1" (change)="search($event)">
+      </div>
+
+    </div>
+  </div>
+
+  <div>
+
+
+    <table class="table table-secondary" style="width: 100%; margin: 10px auto;">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Idade</th>
+          <th scope="col">Email</th>
+          <th scope="col">Contato</th>
+          <th scope="col">Endereço</th>
+          <th scope="col">Modalidade</th>
+          <th scope="col">Plano</th>
+          <th scope="col">Valor</th>
+          <th scope="col">Turno</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of Clients">
+          <th scope="row">{{ item.id }}</th>
+          <td>{{ item.nome }}</td>
+          <td>{{ item.idade }} anos</td>
+          <td>{{ item.email }}</td>
+          <td>{{ item.contato.celular +' / '+ item.contato.residencial }}</td>
+          <td>{{ item.endereco.logradouro +', '+ item.endereco.bairro+', '+ item.endereco.cidade+'/'+
+            item.endereco.estado+' - '+item.endereco.cep }}</td>
+          <td>{{ item.modalidade }}</td>
+          <td>{{ item.plano.nome }}</td>
+          <td>{{ item.plano.valor }}</td>
+          <td>{{ item.turno }}</td>
+
+          <td>
+            <div style="float: right;">
+              <button class="botao-alterar"><i class="bi bi-pencil-square" style="color: blue;" data-bs-toggle="modal"
+                  data-bs-target="#viewCliente" (click)="viewCliente(item)"></i></button>
+              <button class="botao-alterar"><i class="bi bi-trash3" style="color: red;" data-bs-toggle="modal"
+                  data-bs-target="#deletaCliente" (click)="clienteSelecionado(item.id)"></i></button>
+
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="modal fade" id="deletaCliente" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 style="color: red;" class="modal-title">Atenção!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Você tem certeza disso?</p>
+        </div>
+        <div class="modal-footer">
+          <input type="hidden" [(ngModel)]="selecionado" id="selecionado" />
+          <button type="button" class="btn btn-danger" (click)="goDelete(selecionado)"
+            data-bs-dismiss="modal">Excluir</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal" id="viewCliente" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #ffc107;">
+          <h5 class="modal-title">{{ nome }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p> <b>Idade:</b> {{ idade +' anos' }}</p>
+          <p> <b>Email:</b> {{ email }}</p>
+          <p> <b>Contato:</b> {{ celular +' / '+ residencial }}</p>
+          <p> <b>Endereço:</b> {{ logradouro+', '+ bairro+', '+ cidade+'/'+ estado+' - '+ cep}}</p>
+          <p> <b>Modalidade:</b> {{ modalidade }}</p>
+          <p> <b>Plano:</b> {{ plano }}</p>
+          <p> <b>Turno:</b> {{ turno }}</p>
+          <p> <b>Valor:</b> {{ 'R$'+ valor }}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#editaCliente">Editar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="editaCliente" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #ffc107;">
+          <h5 class="modal-title">{{ nome }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" class="form-control" id="formGroupExampleInput" [(ngModel)]="id" name="id">
+          <div class="mb-3 col-sm-7">
+            <label for="formGroupExampleInput" class="form-label">Nome:</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Digite um nome"
+              [(ngModel)]="nome" name="nome">
+          </div>
+          <div class="mb-3 col-sm-7">
+            <label for="formGroupExampleInput" class="form-label">Idade:</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Digite um nome"
+              [(ngModel)]="idade" name="nome">
+          </div>
+          <div class="mb-3 col-sm-4">
+            <label for="formGroupExampleInput" class="form-label">Contato:</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Telefone celular"
+              [(ngModel)]="celular" name="contato">
+            <input style="margin-top: 10px;" type="text" class="form-control" id="formGroupExampleInput"
+              placeholder="Telefone residencial" [(ngModel)]="residencial" name="contato">
+          </div>
+          <div class="mb-3 col-sm-8">
+            <label for="formGroupExampleInput" class="form-label">Email:</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="exemplo@gmail.com"
+              [(ngModel)]="email" name="email">
+          </div>
+          <div class="mb-3 col-sm-4">
+            <label for="formGroupExampleInput" class="form-label">Cep:</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Número do cep"
+              [(ngModel)]="cep" name="cep">
+          </div>
+          <div class="mb-3 col-sm-8">
+            <label for="formGroupExampleInput" class="form-label">Rua:</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome da rua"
+              [(ngModel)]="logradouro" name="logradouro">
+          </div>
+          <div class="mb-3 col-sm-8">
+            <label for="formGroupExampleInput" class="form-label">Bairo:</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome do bairro"
+              [(ngModel)]="bairro" name="bairro">
+          </div>
+          <div class="mb-3 col-sm-8">
+            <label for="formGroupExampleInput" class="form-label">Cidade:</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome da cidade"
+              [(ngModel)]="cidade" name="cidade">
+          </div>
+          <div class="mb-3 col-sm-8">
+            <label for="formGroupExampleInput" class="form-label">Estado:</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome do estado"
+              [(ngModel)]="estado" name="estado">
+          </div>
+
+          <div class="col-sm-3">
+            <label for="inputState" class="form-label"></label>
+            <select id="inputState" class="form-select" [(ngModel)]="modalidade">
+              <option *ngFor="let item of modalidades" value="{{ item.nome }}" style="height: 30px !important;">{{ item.nome
+                | uppercase }}</option>
+            </select>
+          </div>
+
+          <div class="col-sm-3">
+            <label for="inputState" class="form-label"></label>
+            <select id="inputState" class="form-select" [(ngModel)]="plano" (blur)="getValorPlano(plano)">
+              <option *ngFor="let item of planos" value="{{ item.nome }}" style="height: 30px !important;">{{ item.nome }}
+              </option>
+            </select>
+          </div>
+
+          <div class="col-sm-3">
+            <label for="inputState" class="form-label"></label>
+            <select id="inputState" class="form-select" [(ngModel)]="turno">
+              <option *ngFor="let item of turnos" value="{{ item.nome }}" style="height: 30px !important;">{{ item.nome }}
+              </option>
+            </select>
+          </div>
+
+          <div class="col-sm-3">
+            <label for="inputState" class="form-label"></label>
+            <input type="text" class="form-control" placeholder="Valor Plano" aria-label="Estado" [(ngModel)]="valorPlano"
+              name="valorPlano" disabled>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="goAltera()" data-bs-dismiss="modal">Alterar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,33 @@
+<div style="width: 100%; height: 1000px; background-color: black; margin-top: -100px;">
+
+
+  <div class="bg-black" style="padding-top: 150px;">
+    <div class="centerDiv">
+      <main class="form-signin w-100 m-auto">
+
+        <div style="display: flex; flex-direction: row; justify-content: center;">
+          <img src="https://www.pngkit.com/png/full/239-2392915_logo-gym-logo-png-white.png" alt="">
+        </div>
+
+        <h1 class="h3 mb-3 fw-normal" style="color: white;">Login</h1>
+
+        <div class="form-floating">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="formUsers.email">
+          <label for="floatingInput">Endereço de Email</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="formUsers.senha">
+          <label for="floatingPassword">Senha</label>
+        </div>
+
+        <div class="checkbox mb-3">
+          <label style="color:white">
+            <input type="checkbox" value="remember-me">Lembrar
+          </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" (click)="login()">Entrar</button>
+        <p style="color: red;" *ngIf="isLogged">{{ mensagem }}</p>
+      </main>
+    </div>
+  </div>
+</div>
