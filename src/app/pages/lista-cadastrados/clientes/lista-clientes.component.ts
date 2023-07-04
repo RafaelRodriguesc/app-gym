@@ -24,7 +24,6 @@ export class ListaClientesComponent implements OnInit {
   nome: string = ''
   email: string = ''
   celular: string = ''
-  residencial: string = ''
   modalidade: string = ''
   logradouro: string = ''
   bairro: string = ''
@@ -58,7 +57,6 @@ export class ListaClientesComponent implements OnInit {
         element.idade = newData['_data']['years'];
       });
       this.Clients = data
-      console.log(this.Clients)
     })
   }
 
@@ -71,7 +69,6 @@ export class ListaClientesComponent implements OnInit {
     this.nome = dados.nome
     this.email = dados.email
     this.celular = dados.contato.celular
-    this.residencial = dados.contato.residencial
     this.logradouro = dados.endereco.logradouro
     this.bairro = dados.endereco.bairro
     this.cidade = dados.endereco.cidade
@@ -112,7 +109,6 @@ export class ListaClientesComponent implements OnInit {
       "email": this.email,
       "contato": {
         "celular": this.celular,
-        "residencial": this.residencial,
       },
       "endereco": {
         "logradouro": this.logradouro,
@@ -135,7 +131,6 @@ export class ListaClientesComponent implements OnInit {
 
   getPlanos() {
     this._http.get('http://localhost:3000/planos').subscribe((responsePlanos: any) => {
-      console.log(responsePlanos)
       this.planos = responsePlanos
     })
   }
@@ -158,7 +153,6 @@ export class ListaClientesComponent implements OnInit {
     } else {
       this.planos.forEach(element => {
         if (element.nome === this.formClient.plano.nome) {
-          console.log(element.valor)
           this.valorPlano = element.valor
           this.formClient.plano.valor = element.valor
         }

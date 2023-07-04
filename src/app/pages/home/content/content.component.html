@@ -1,142 +1,207 @@
 <div class="content">
-  <div style="padding-top: 15px;">
-    <h1 class="title-clientes" style="text-align:center;">Cadastro de clientes</h1>
-  </div>
+  <!--titulo da página-->
+  <div class="page-title">Cadastro de clientes</div>
+  <!--formulário de cadastro de clientes-->
   <div class="formulario">
-    <div class="row" style="padding-top:50px;">
+    <div class="row padding">
       <div class="col-sm-3">
-        <input type="text" class="form-control" placeholder="Nome completo" aria-label="Nome completo"
-          [(ngModel)]="formClient.nome" name="nome">
-      </div>
-      <div class="col-sm-2">
-        <input type="date" min="1922-10-14" max="2022-10-14" class="form-control" placeholder="Data de nascimento"
-          aria-label="Data de nascimento" [(ngModel)]="formClient.idade" name="idade">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Nome completo"
+          aria-label="Nome completo"
+          [(ngModel)]="formClient.nome"
+          name="nome"
+        />
       </div>
       <div class="col-sm-3">
-        <input type="email" class="form-control" placeholder="Email" aria-label="Email" [(ngModel)]="formClient.email"
-          name="email">
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Email"
+          aria-label="Email"
+          [(ngModel)]="formClient.email"
+          name="email"
+        />
       </div>
       <div class="col-sm-2">
-        <input type="tel" class="form-control" placeholder="Telefone celular" aria-label="Telefone celular"
-          [(ngModel)]="formClient.contato.celular" name="contato">
+        <input
+          type="date"
+          min="1922-10-14"
+          max="2022-10-14"
+          class="form-control"
+          placeholder="Data de nascimento"
+          aria-label="Data de nascimento"
+          [(ngModel)]="formClient.idade"
+          name="idade"
+        />
       </div>
       <div class="col-sm-2">
-        <input type="tel" class="form-control" placeholder="Telefone residencial" aria-label="Telefone residencial"
-          [(ngModel)]="formClient.contato.residencial" name="contato">
+        <input
+          type="tel"
+          class="form-control"
+          placeholder="Telefone celular"
+          aria-label="Telefone celular"
+          [(ngModel)]="formClient.contato.celular"
+          name="contato"
+        />
+      </div>
+      <div class="col-sm-2">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Cep"
+          aria-label="Cep"
+          [(ngModel)]="formClient.endereco.cep"
+          name="cep"
+          (blur)="getDadosCep()"
+        />
+        <small *ngIf="cepNaoEncontrado" style="color: red; font-style: italic"
+          >Cep não encontrado</small
+        >
       </div>
     </div>
-
-    <div class="row" style="padding-top:20px;">
-      <div class="col-sm-2">
-        <input type="text" class="form-control" placeholder="Cep" aria-label="Cep" [(ngModel)]="formClient.endereco.cep"
-          name="cep" (blur)="getDadosCep()">
-        <small *ngIf="cepNaoEncontrado" style="color: red; font-style:italic">Cep não encontrado</small>
+    <div class="row padding">
+      <div class="col-sm-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Rua"
+          aria-label="Rua"
+          [(ngModel)]="formClient.endereco.logradouro"
+          name="logradouro"
+          disabled
+        />
       </div>
       <div class="col-sm-3">
-        <input type="text" class="form-control" placeholder="Rua" aria-label="Rua"
-          [(ngModel)]="formClient.endereco.logradouro" name="logradouro" disabled>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Bairro"
+          aria-label="Bairro"
+          [(ngModel)]="formClient.endereco.bairro"
+          name="bairro"
+          disabled
+        />
       </div>
       <div class="col-sm-3">
-        <input type="text" class="form-control" placeholder="Bairro" aria-label="Bairro"
-          [(ngModel)]="formClient.endereco.bairro" name="bairro" disabled>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="cidade"
+          aria-label="Cidade"
+          [(ngModel)]="formClient.endereco.cidade"
+          name="cidade"
+          disabled
+        />
       </div>
-      <div class="col-sm-2">
-        <input type="text" class="form-control" placeholder="cidade" aria-label="Cidade"
-          [(ngModel)]="formClient.endereco.cidade" name="cidade" disabled>
+      <div class="col-sm-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Estado"
+          aria-label="Estado"
+          [(ngModel)]="formClient.endereco.estado"
+          name="estado"
+          disabled
+        />
       </div>
-      <div class="col-sm-2">
-        <input type="text" class="form-control" placeholder="Estado" aria-label="Estado"
-          [(ngModel)]="formClient.endereco.estado" name="estado" disabled>
-      </div>
-
     </div>
-
-    <div class="row" style="padding-top:0px;">
-
+    <div class="row">
       <div class="col-sm-3">
         <label for="inputState" class="form-label"></label>
-        <select id="inputState" class="form-select" [(ngModel)]="formClient.modalidade">
-          <option *ngFor="let item of modalidades" value="{{ item.nome }}" style="height: 30px !important;">{{ item.nome
-            | uppercase }}</option>
-        </select>
-      </div>
-
-      <!-- <div class="col-sm-3">
-        <label for="inputState" class="form-label"></label>
-        <select id="inputState" class="form-select">
-          <option selected disabled>Modalidades</option>
-          <option value="musuculacao" [(ngModel)]="formClient.modalidade">Musculação</option>
-          <option value="boxe" [(ngModel)]="formClient.modalidade">Boxe</option>
-          <option value="ginastica" [(ngModel)]="formClient.modalidade">Ginástica</option>
-          <option value="natacao" [(ngModel)]="formClient.modalidade">Natação</option>
-          <option value="crossfit" [(ngModel)]="formClient.modalidade">CrossFit</option>
-        </select>
-      </div> -->
-
-      <div class="col-sm-3">
-        <label for="inputState" class="form-label"></label>
-        <select id="inputState" class="form-select" [(ngModel)]="formClient.plano.nome" (blur)="getValorPlano(plano)">
-          <option *ngFor="let item of planos" value="{{ item.nome }}" style="height: 30px !important;">{{ item.nome }}
+        <select
+          id="inputState"
+          class="form-select"
+          [(ngModel)]="formClient.modalidade"
+        >
+          <option *ngFor="let item of modalidades" value="{{ item.nome }}">
+            {{ item.nome }}
           </option>
         </select>
       </div>
-
       <div class="col-sm-3">
         <label for="inputState" class="form-label"></label>
-        <select id="inputState" class="form-select" [(ngModel)]="formClient.turno">
-          <option *ngFor="let item of turnos" value="{{ item.nome }}" style="height: 30px !important;">{{ item.nome }}
+        <select
+          id="inputState"
+          class="form-select"
+          [(ngModel)]="formClient.plano.nome"
+          (blur)="getValorPlano(plano)"
+        >
+          <option *ngFor="let item of planos" value="{{ item.nome }}">
+            {{ item.nome }}
           </option>
         </select>
       </div>
-
-
-      <!-- <div class="col-sm-3">
-        <label for="inputState" class="form-label"></label>
-        <select id="inputState" class="form-select">
-          <option selected disabled>Turno</option>
-          <option value="manha" [(ngModel)]="formClient.turno">Manhã</option>
-          <option value="tarde" [(ngModel)]="formClient.turno">Tarde</option>
-          <option value="noite" [(ngModel)]="formClient.turno">Noite</option>
-        </select>
-      </div> -->
       <div class="col-sm-3">
         <label for="inputState" class="form-label"></label>
-        <input type="text" class="form-control" placeholder="Valor Plano" aria-label="Estado" [(ngModel)]="valorPlano"
-          name="valorPlano" disabled>
+        <select
+          id="inputState"
+          class="form-select"
+          [(ngModel)]="formClient.turno"
+        >
+          <option *ngFor="let item of turnos" value="{{ item.nome }}">
+            {{ item.nome }}
+          </option>
+        </select>
       </div>
-
-    </div>
-
-    <div class="row" style="padding-top: 20px;">
-      <div class="col md-3" style="display: flex; flex-direction: row;">
-        <div class="col mt-3">
-          <button class="btn btn-warning" (click)="goCadastro()">Salvar</button>
-          <button class="btn btn-danger" style="margin-left: 10px;" (click)="goClean()">Limpar</button>
-        </div>
+      <div class="col-sm-3">
+        <label for="inputState" class="form-label"></label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Valor Plano"
+          aria-label="Estado"
+          [(ngModel)]="valorPlano"
+          name="valorPlano"
+          disabled
+        />
       </div>
     </div>
-
+    <div class="button-save-clean padding">
+      <button class="btn btn-success" (click)="goCadastro()">Salvar</button>
+      <button class="btn btn-danger" (click)="goClean()">Limpar</button>
+    </div>
   </div>
-
-
-
-
-  <!-- Modal -->
-  <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+  <!-- Modal erro ao cadastrar-->
+  <div
+    class="modal"
+    tabindex="-1"
+    role="dialog"
+    [ngStyle]="{ display: displayStyle }"
+  >
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header" style="background-color: red;">
-          <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: white;" >Erro ao cadastrar</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"  (click)="closePopup()"></button>
+        <div class="modal-header" style="background-color: red">
+          <h1
+            class="modal-title fs-5"
+            id="exampleModalLabel"
+            style="color: white"
+          >
+            Erro ao cadastrar
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            (click)="closePopup()"
+          ></button>
         </div>
         <div class="modal-body">
           <p>Todos os campos devem ser preenchidos!</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closePopup()">Entendi</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            (click)="closePopup()"
+          >
+            Entendi
+          </button>
         </div>
       </div>
     </div>
   </div>
-
 </div>

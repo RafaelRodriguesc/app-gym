@@ -1,87 +1,194 @@
 <app-header></app-header>
-
 <div class="content">
-  <div style="padding-top: 15px;">
-    <h1 class="page-title" style="text-align:center;">Usuários</h1>
+  <!--titulo da página-->
+  <div class="page-title">Usuários</div>
+  <!-- div para buscar e adicionar usuários -->
+  <div class="container-search-button">
+    <div class="search-box">
+      <input
+        type="search"
+        placeholder="Buscar usuário..."
+        id="search"
+        aria-label="Username"
+        aria-describedby="basic-addon1"
+        (change)="search($event)"
+      />
+      <button type="submit" id="icon-search">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+    <div>
+      <button
+        type="button"
+        class="btn btn-success btn-sm"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        <i class="bi bi-person-plus-fill"></i> Adicionar usuário
+      </button>
+    </div>
   </div>
-
-  <!-- Button trigger modal -->
-  <div style="width: 90%; margin: 50px auto; display:flex; justify-content: flex-end;">
-    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-        class="bi bi-person-plus-fill"></i>Add</button>
-  </div>
-
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- Modal para registrar novo usuário -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
       <div class="modal-content">
-        <div class="modal-header" style="background-color: #ffc107;">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Registro de usuários</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-header" style="background-color: #ffc107">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            Registro de usuários
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
         </div>
         <div class="modal-body">
-
           <div class="mb-3 col-sm-8">
             <label for="formGroupExampleInput" class="form-label">Nome:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Digite um nome"
-              [(ngModel)]="formUser.nome" name="nome">
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="Digite um nome"
+              [(ngModel)]="formUser.nome"
+              name="nome"
+            />
           </div>
           <div class="mb-3 col-sm-4">
-            <label for="formGroupExampleInput" class="form-label">Contato:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Telefone celular"
-              [(ngModel)]="formUser.contato.celular" name="contato">
-            <input style="margin-top: 10px;" type="text" class="form-control" id="formGroupExampleInput"
-              placeholder="Telefone residencial" [(ngModel)]="formUser.contato.residencial" name="contato">
+            <label for="formGroupExampleInput" class="form-label"
+              >Contato:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="Telefone celular"
+              [(ngModel)]="formUser.contato.celular"
+              name="contato"
+            />
           </div>
           <div class="mb-3 col-sm-8">
             <label for="formGroupExampleInput" class="form-label">Email:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="exemplo@gmail.com"
-              [(ngModel)]="formUser.email" name="email">
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="exemplo@gmail.com"
+              [(ngModel)]="formUser.email"
+              name="email"
+            />
           </div>
           <div class="mb-3 col-sm-4">
             <label for="exampleInputPassword1" class="form-label">Senha:</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Digite uma senha"
-              [(ngModel)]="formUser.senha" name="senha">
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="Digite uma senha"
+              [(ngModel)]="formUser.senha"
+              name="senha"
+            />
           </div>
           <div class="mb-3 col-sm-4">
             <label for="formGroupExampleInput" class="form-label">Cep:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Número do cep"
-              [(ngModel)]="formUser.endereco.cep" name="cep" (blur)="getDadosCep()">
-            <small *ngIf="cepNaoEncontrado" style="color: red; font-style:italic">Cep não encontrado</small>
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="Número do cep"
+              [(ngModel)]="formUser.endereco.cep"
+              name="cep"
+              (blur)="getDadosCep()"
+            />
+            <small
+              *ngIf="cepNaoEncontrado"
+              style="color: red; font-style: italic"
+              >Cep não encontrado</small
+            >
           </div>
           <div class="mb-3 col-sm-8">
             <label for="formGroupExampleInput" class="form-label">Rua:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome da rua"
-              [(ngModel)]="formUser.endereco.logradouro" name="logradouro">
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="Nome da rua"
+              [(ngModel)]="formUser.endereco.logradouro"
+              name="logradouro"
+            />
           </div>
           <div class="mb-3 col-sm-8">
             <label for="formGroupExampleInput" class="form-label">Bairo:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome do bairro"
-              [(ngModel)]="formUser.endereco.bairro" name="bairro">
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="Nome do bairro"
+              [(ngModel)]="formUser.endereco.bairro"
+              name="bairro"
+            />
           </div>
           <div class="mb-3 col-sm-8">
-            <label for="formGroupExampleInput" class="form-label">Cidade:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome da cidade"
-              [(ngModel)]="formUser.endereco.cidade" name="cidade">
+            <label for="formGroupExampleInput" class="form-label"
+              >Cidade:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="Nome da cidade"
+              [(ngModel)]="formUser.endereco.cidade"
+              name="cidade"
+            />
           </div>
           <div class="mb-3 col-sm-8">
-            <label for="formGroupExampleInput" class="form-label">Estado:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome do estado"
-              [(ngModel)]="formUser.endereco.estado" name="estado">
+            <label for="formGroupExampleInput" class="form-label"
+              >Estado:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="Nome do estado"
+              [(ngModel)]="formUser.endereco.estado"
+              name="estado"
+            />
           </div>
           <fieldset class="row mb-3">
             <legend class="col-form-label col-sm-2 pt-0">Acesso:</legend>
             <div class="col-sm-10">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Total" checked
-                  [(ngModel)]="formUser.acesso" name="total">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gridRadios"
+                  id="gridRadios1"
+                  value="Total"
+                  checked
+                  [(ngModel)]="formUser.acesso"
+                  name="total"
+                />
                 <label class="form-check-label" for="gridRadios1">
                   Total
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Restrito"
-                  [(ngModel)]="formUser.acesso" name="restrito">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gridRadios"
+                  id="gridRadios2"
+                  value="Restrito"
+                  [(ngModel)]="formUser.acesso"
+                  name="restrito"
+                />
                 <label class="form-check-label" for="gridRadios2">
                   Restrito
                 </label>
@@ -90,27 +197,24 @@
           </fieldset>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-warning" data-bs-dismiss="modal" (click)="goCadastro()">Salvar</button>
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+          <button
+            type="button"
+            class="btn btn-warning"
+            data-bs-dismiss="modal"
+            (click)="goCadastro()"
+          >
+            Salvar
+          </button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+            Fechar
+          </button>
         </div>
       </div>
     </div>
   </div>
-
-  <!--Search-->
-  <div class="row search-container">
-    <div class="col-md-3">
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-        <input type="text" style="height:40px ;" class="form-control" placeholder="Busque um usuário..."
-          aria-label="Username" aria-describedby="basic-addon1" (change)="search($event)">
-      </div>
-
-    </div>
-  </div>
-
+  <!--Tabela de usuários-->
   <div>
-    <table class="table table-secondary" style="width: 90%; margin: 10px auto;">
+    <table class="table table-secondary">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -127,157 +231,319 @@
           <th scope="row">{{ item.id }}</th>
           <td>{{ item.nome }}</td>
           <td>{{ item.email }}</td>
-          <td>{{ item.acesso}}</td>
-          <td>{{ item.contato.celular +' / '+ item.contato.residencial }}</td>
-          <td>{{ item.endereco.logradouro +', '+ item.endereco.bairro+', '+ item.endereco.cidade+'/'+
-            item.endereco.estado+' - '+ item.endereco.cep }}</td>
-
+          <td>{{ item.acesso }}</td>
+          <td>{{ item.contato.celular }}</td>
           <td>
-            <div style="float: right;">
-              <button class="botao-alterar" data-bs-toggle="modal" data-bs-target="#modalView"
-                (click)="userView(item)"><i class="bi bi-pencil-square" style="color: blue;"></i></button>
-              <button class="botao-alterar" data-bs-toggle="modal" data-bs-target="#modalDelete"
-                (click)="goSelecionado(item.id)"><i class="bi bi-trash3" style="color: red;"></i></button>
+            {{
+              item.endereco.logradouro +
+                ", " +
+                item.endereco.bairro +
+                ", " +
+                item.endereco.cidade +
+                "/" +
+                item.endereco.estado +
+                " - " +
+                item.endereco.cep
+            }}
+          </td>
+          <td>
+            <div class="button-view-delete">
+              <button
+                class="botao-view"
+                data-bs-toggle="modal"
+                data-bs-target="#modalView"
+                (click)="userView(item)"
+              >
+                <i class="bi bi-pencil-square"></i>
+              </button>
+              <button
+                class="botao-deletar"
+                data-bs-toggle="modal"
+                data-bs-target="#modalDelete"
+                (click)="goSelecionado(item.id)"
+              >
+                <i class="bi bi-trash3"></i>
+              </button>
             </div>
-
           </td>
         </tr>
       </tbody>
     </table>
   </div>
-
   <!--Modal Delete-->
   <div class="modal fade" id="modalDelete" tabindex="-1">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 style="color: red;" class="modal-title">Atenção!</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 style="color: red" class="modal-title">Atenção!</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
         </div>
         <div class="modal-body">
           <p>Você tem certeza disso?</p>
         </div>
         <div class="modal-footer">
           <input type="hidden" [(ngModel)]="selecionado" id="selecionado" />
-          <button type="button" class="btn btn-danger" (click)="goDelete(selecionado)"
-            data-bs-dismiss="modal">Excluir</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="goDelete(selecionado)"
+            data-bs-dismiss="modal"
+          >
+            Excluir
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Não
+          </button>
         </div>
       </div>
     </div>
   </div>
-
   <!--Modal View-->
   <div class="modal" id="modalView" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header" style="background-color: #ffc107;">
+        <div class="modal-header" style="background-color: #ffc107">
           <h5 class="modal-title">{{ nome }}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
         </div>
         <div class="modal-body">
-          <p> <b>Email:</b> {{email}}</p>
-          <p> <b>Contato:</b> {{celular +' / '+ residencial }}</p>
-          <p> <b>Acesso:</b> {{acesso}}</p>
-          <p> <b>Endereço:</b> {{ logradouro+', '+ bairro+', '+ cidade+'/'+ estado+' - '+ cep}}</p>
+          <p><b>Email:</b> {{ email }}</p>
+          <p><b>Contato:</b> {{ celular }}</p>
+          <p><b>Acesso:</b> {{ acesso }}</p>
+          <p>
+            <b>Endereço:</b>
+            {{
+              logradouro +
+                ", " +
+                bairro +
+                ", " +
+                cidade +
+                "/" +
+                estado +
+                " - " +
+                cep
+            }}
+          </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-            data-bs-target="#modalEdit">Editar</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#modalEdit"
+          >
+            Editar
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Fechar
+          </button>
         </div>
       </div>
     </div>
   </div>
-
-
   <!--Modal Edit-->
   <div class="modal" id="modalEdit" tabindex="-1">
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
       <div class="modal-content">
-        <div class="modal-header" style="background-color: #ffc107;">
+        <div class="modal-header" style="background-color: #ffc107">
           <h5 class="modal-title">{{ nome }}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
         </div>
         <div class="modal-body">
-          <input type="hidden" class="form-control" id="formGroupExampleInput" [(ngModel)]="id" name="id">
+          <input
+            type="hidden"
+            class="form-control"
+            id="formGroupExampleInput"
+            [(ngModel)]="id"
+            name="id"
+          />
           <div class="mb-3 col-sm-7">
             <label for="formGroupExampleInput" class="form-label">Nome:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Digite um nome"
-              [(ngModel)]="nome" name="nome">
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="Digite um nome"
+              [(ngModel)]="nome"
+              name="nome"
+            />
           </div>
           <div class="mb-3 col-sm-4">
-            <label for="formGroupExampleInput" class="form-label">Contato:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Telefone celular"
-              [(ngModel)]="celular" name="contato">
-            <input style="margin-top: 10px;" type="text" class="form-control" id="formGroupExampleInput"
-              placeholder="Telefone residencial" [(ngModel)]="residencial" name="contato">
+            <label for="formGroupExampleInput" class="form-label"
+              >Contato:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="Telefone celular"
+              [(ngModel)]="celular"
+              name="contato"
+            />
           </div>
           <div class="mb-3 col-sm-8">
             <label for="formGroupExampleInput" class="form-label">Email:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="exemplo@gmail.com"
-              [(ngModel)]="email" name="email">
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="exemplo@gmail.com"
+              [(ngModel)]="email"
+              name="email"
+            />
           </div>
           <div class="mb-3 col-sm-4">
             <label for="exampleInputPassword1" class="form-label">Senha:</label>
-            <input type="password" class="form-control" id="xampleInputPassword1" placeholder="Digite uma senha"
-              [(ngModel)]="senha" name="senha">
+            <input
+              type="password"
+              class="form-control"
+              id="xampleInputPassword1"
+              placeholder="Digite uma senha"
+              [(ngModel)]="senha"
+              name="senha"
+            />
           </div>
           <div class="mb-3 col-sm-4">
             <label for="formGroupExampleInput" class="form-label">Cep:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Número do cep"
-              [(ngModel)]="cep" name="cep" (blur)="getDadosCep()">
-            <small *ngIf="cepNaoEncontrado" style="color: red; font-style:italic">Cep não encontrado</small>
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="Número do cep"
+              [(ngModel)]="cep"
+              name="cep"
+              (blur)="getDadosCep()"
+            />
+            <small
+              *ngIf="cepNaoEncontrado"
+              style="color: red; font-style: italic"
+              >Cep não encontrado</small
+            >
           </div>
           <div class="mb-3 col-sm-8">
             <label for="formGroupExampleInput" class="form-label">Rua:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome da rua"
-              [(ngModel)]="logradouro" name="logradouro">
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="Nome da rua"
+              [(ngModel)]="logradouro"
+              name="logradouro"
+            />
           </div>
           <div class="mb-3 col-sm-8">
             <label for="formGroupExampleInput" class="form-label">Bairo:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome do bairro"
-              [(ngModel)]="bairro" name="bairro">
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="Nome do bairro"
+              [(ngModel)]="bairro"
+              name="bairro"
+            />
           </div>
           <div class="mb-3 col-sm-8">
-            <label for="formGroupExampleInput" class="form-label">Cidade:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome da cidade"
-              [(ngModel)]="cidade" name="cidade">
+            <label for="formGroupExampleInput" class="form-label"
+              >Cidade:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="Nome da cidade"
+              [(ngModel)]="cidade"
+              name="cidade"
+            />
           </div>
           <div class="mb-3 col-sm-8">
-            <label for="formGroupExampleInput" class="form-label">Estado:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome do estado"
-              [(ngModel)]="estado" name="estado">
+            <label for="formGroupExampleInput" class="form-label"
+              >Estado:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="Nome do estado"
+              [(ngModel)]="estado"
+              name="estado"
+            />
           </div>
           <fieldset class="row mb-3">
             <legend class="col-form-label col-sm-2 pt-0">Acesso:</legend>
             <div class="col-sm-10">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Total" checked
-                  [(ngModel)]="acesso" name="total">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gridRadios"
+                  id="gridRadios1"
+                  value="Total"
+                  checked
+                  [(ngModel)]="acesso"
+                  name="total"
+                />
                 <label class="form-check-label" for="gridRadios1">
                   Total
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Restrito"
-                  [(ngModel)]="acesso" name="restrito">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gridRadios"
+                  id="gridRadios2"
+                  value="Restrito"
+                  [(ngModel)]="acesso"
+                  name="restrito"
+                />
                 <label class="form-check-label" for="gridRadios2">
                   Restrito
                 </label>
               </div>
             </div>
           </fieldset>
-
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" (click)="goAltera()" data-bs-dismiss="modal">Alterar</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="goAltera()"
+            data-bs-dismiss="modal"
+          >
+            Alterar
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Voltar
+          </button>
         </div>
       </div>
     </div>
   </div>
-
-
 </div>
-<app-footer></app-footer>

@@ -74,7 +74,6 @@ export class ContentComponent implements OnInit {
     else {
       this._apiClientesService.postClient(this.formClient).subscribe(data => {
         this._router.navigate(['/lista-clientes'])
-        console.log("data returned =>", data)
       })
     }
 
@@ -86,7 +85,6 @@ export class ContentComponent implements OnInit {
 
   getPlanos() {
     this._http.get('http://localhost:3000/planos').subscribe((responsePlanos: any) => {
-      console.log(responsePlanos)
       this.planos = responsePlanos
     })
   }
@@ -110,7 +108,6 @@ export class ContentComponent implements OnInit {
     } else {
       this.planos.forEach(element => {
         if (element.nome === this.formClient.plano.nome) {
-          console.log(element.valor)
           this.valorPlano = element.valor
           this.formClient.plano.valor = element.valor
         }
@@ -131,7 +128,6 @@ export class ContentComponent implements OnInit {
 
   goClean() {
     this.formClient.contato.celular = ''
-    this.formClient.contato.residencial = ''
     this.formClient.nome = ''
     this.formClient.idade = ''
     this.formClient.email = ''

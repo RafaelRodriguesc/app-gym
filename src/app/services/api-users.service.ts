@@ -16,7 +16,6 @@ export class ApiUsersService {
 
   getAllUsers (): Observable<any> {
     this._http.get(this.urlApiUsers).subscribe(data =>{
-      console.log(data)
     })
     return this._http.get(this.urlApiUsers)
 

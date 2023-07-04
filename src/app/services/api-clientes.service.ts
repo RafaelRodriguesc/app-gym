@@ -16,7 +16,6 @@ export class ApiClientesService {
 
   getAllClients (): Observable<any> {
     this._http.get(this.urlApiClients).subscribe(data => {
-      console.log(data)
     })
     return this._http.get(this.urlApiClients)
   }

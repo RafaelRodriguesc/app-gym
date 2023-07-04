@@ -1,3 +1,59 @@
 header {
-  margin-bottom: -16px;
+  width: 100%;
+  background-color: black;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header img{
+  height: 72px;
+}
+
+.menu a{
+  text-decoration: none;
+  color: white;
+  padding-left: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: sans-serif;
+  letter-spacing: 1.2px;
+}
+
+.menu a:hover {
+  color: yellow;
+}
+
+.menu button {
+  background-color: transparent;
+  border: none;
+  padding-left: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: sans-serif;
+  letter-spacing: 1.2px;
+  color: white;
+}
+
+.menu button:hover {
+  color: red;
+}
+
+
+@media (max-width: 1199px) {
+ .container {
+  justify-content: space-around;
+  margin-right: 10px;
+ }
+ .menu a {
+  font-size: 14px;
+ }
+
 }

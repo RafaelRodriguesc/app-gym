@@ -22,7 +22,7 @@ export class ListaUsuariosComponent implements OnInit {
   nome: string = ''
   email: string = ''
   celular: string = ''
-  residencial: string = ''
+
   acesso: string = ''
   logradouro: string = ''
   bairro: string = ''
@@ -92,7 +92,6 @@ export class ListaUsuariosComponent implements OnInit {
   }
 
   goDelete (id:number) {
-    console.log("id", id)
     const params = {
       id: id,
       tabela: 'usuarios'
@@ -113,7 +112,6 @@ export class ListaUsuariosComponent implements OnInit {
     this.nome = dados.nome
     this.email = dados.email
     this.celular = dados.contato.celular
-    this.residencial = dados.contato.residencial
     this.acesso = dados.acesso
     this.logradouro = dados.endereco.logradouro
     this.bairro = dados.endereco.bairro
@@ -133,7 +131,6 @@ export class ListaUsuariosComponent implements OnInit {
       "senha": this.senha,
       "contato": {
         "celular": this.celular,
-        "residencial": this.residencial,
       },
       "endereco": {
         "logradouro": this.logradouro,

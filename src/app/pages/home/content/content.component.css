@@ -1,17 +1,33 @@
 
 .content {
-  width: 100%;
-  height: 1000px;
-  background-image: url(https://m.media-amazon.com/images/I/61Gby6pKFQL.jpg);
-  background-attachment: fixed;
+  background-image: url(../../../../assets/img/bg-gym.jpg);
+  background-position:center;
+  background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
- .formulario {
-  padding: 100px 100px;
+
+.padding {
+  padding-top: 20px;
 }
 
-.title-clientes {
+.page-title {
+  font-size: 26px;
+  letter-spacing: 1.5px;
+  text-align: center;
   background-color: #ffc107;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+ .formulario {
+  width: 90%;
+  margin: 100px auto;
+
+}
+
+.button-save-clean {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
 }

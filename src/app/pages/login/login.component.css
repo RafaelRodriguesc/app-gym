@@ -1,27 +1,70 @@
-body {
-  margin: 0;
-  padding: 0;
-  background-color: black !important;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
-.centerDiv {
-  width: 500px;
-  height: 500px;
-  position: relative;
-  margin: 5.5% auto;
+.login {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.mb-4 {
-  width: 500px;
-  height: 350px;
+label {
+  color: white;
 }
 
-.vermelho {
-  color: red;
+input:active, input:focus {
+  outline-color: white;
 }
 
-.form-floating {
-  margin-bottom: 10px;
+input::placeholder {
+  color: white;
 }
 
+input {
+  width: 400px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 14px;
+}
 
+button {
+  width: 100px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: #ffc107;
+  background-color: #ffc107;
+  color: white;
+  font-weight: bold;
+  align-self: center;
+}
+
+@media (max-width: 1199px) {
+  input {
+    width: 100%;
+    background-color: black;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: white;
+    border-radius: 0;
+    color: white;
+  }
+  label {
+      color: black;
+  }
+  img {
+      width: 50%;
+  }
+  form {
+      gap: 5px;
+  }
+  button {
+      width: 100%;
+      background-color: black;
+  }
+}

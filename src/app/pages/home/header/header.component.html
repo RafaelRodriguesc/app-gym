@@ -1,55 +1,11 @@
 <header>
-  <div class="px-3 py-2 text-bg-dark">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
-          <img src="https://www.pngkit.com/png/full/239-2392915_logo-gym-logo-png-white.png" alt="" width="70px" height="70px" style="margin-left: -180px">
-        </a>
-
-        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-          <li>
-            <a href="#" class="nav-link text-white" routerLink="/home">
-              <img class="bi d-block mx-auto mb-1" width="24" height="24" src="https://www.nicepng.com/png/full/335-3354019_white-home-button-icon-png-for-kids-white.png" alt="">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link text-white" routerLink="/lista-clientes">
-              <img class="bi d-block mx-auto mb-1" width="24" height="24" src="http://www.clker.com/cliparts/a/k/Y/6/h/y/icon-fitness-hi.png" alt="">
-              Clientes
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link text-white" routerLink="/lista-usuarios">
-              <img class="bi d-block mx-auto mb-1" width="24" height="24" src="https://icon-library.com/images/white-profile-icon/white-profile-icon-16.jpg" alt="">
-              Usuários
-            </a>
-          </li>
-          <li>
-            <a href="" class="nav-link disabled text-white" routerLink="/agenda">
-              <img class="bi d-block mx-auto mb-1" width="24" height="24" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Calendar_Icon_White.svg/1200px-Calendar_Icon_White.svg.png" alt="">
-              Agenda
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link text-white" routerLink="/quem-somos">
-              <img class="bi d-block mx-auto mb-1" width="24" height="24" src="https://www.pngkit.com/png/full/239-2392915_logo-gym-logo-png-white.png" alt="">
-              Quem somos
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="px-3 py-2 border-bottom mb-3">
-    <div class="container d-flex flex-wrap justify-content-center">
-      <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
-        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-      </form>
-
-      <div class="text-end">
-        <button type="button" class="btn btn-outline-danger" (click)="goLogout()"><i class="bi bi-door-open-fill"></i>Logout</button>
-      </div>
+  <div class="container">
+    <img src="../../../../assets/img/logo-gym.png" alt="Logotipo gym" />
+    <div class="menu">
+      <a href="#" routerLink="/home">Cadastro</a>
+      <a href="#" routerLink="/lista-clientes">Clientes</a>
+      <a href="#" routerLink="/lista-usuarios">Usuários</a>
+      <button (click)="goLogout()">Sair</button>
     </div>
   </div>
 </header>
